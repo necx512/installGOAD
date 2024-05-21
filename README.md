@@ -64,3 +64,10 @@ t/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtual
 u/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory reboot.yml
 
 Note: At each step, make sure that VMs are well rebooted. If a playbook fail, retry by starting it
+
+
+Pour arreter et demarrer:
+
+- cd ad/GOAD/providers/virtualbox
+- vagrant halt / vagrant up
+
