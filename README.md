@@ -38,4 +38,29 @@ iptables -P OUTPUT ACCEPT
 11/ ./goad.sh -t check -l GOAD -p virtualbox -m local
 
 12/ ./goad.sh -t install -l GOAD -p virtualbox -m local
-This should take about 2h30 on my machine
+This should take about 2h30 on my machine If this doesn't work, remove all VMS and do:
+
+
+a/ cd ad/GOAD/providers/virtualbox
+b/ vagrant up
+c/ cd /home/seb/GIT/GOAD/ansible
+d/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory data.yml 
+e/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory build.yml
+f/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-servers.yml
+g/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-parent_domain.yml
+h/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-child_domain.yml
+i/ sleep 5m
+j/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-members.yml
+k/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-trusts.yml
+l/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-data.yml
+m/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-gmsa.yml
+n/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory laps.yml
+o/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-relations.yml
+p/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory adcs.yml
+q/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory ad-acl.yml
+r/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory servers.yml 
+s/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory security.yml
+t/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory vulnerabilities.yml
+u/ ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory reboot.yml
+
+Note: At each step, make sure that VMs are well rebooted. If a playbook fail, retry by starting it
