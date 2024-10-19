@@ -93,6 +93,7 @@ Dans requirements.yml, remplacer `ansible-core==2.12.6` par `ansible-core`
 
 
 ## Vagrant / VB
+### Error 1
 ```
 The provider 'virtualbox' that was requested to back the machine
 'GOAD-DC01' is reporting that it isn't usable on this system. The
@@ -128,6 +129,23 @@ D'après `https://github.com/hashicorp/vagrant/issues/13501`, dans `/usr/bin/VBo
         exec "$INSTALL_DIR/VBoxSDL" "$@"
         ;;
 ```
+
+### Error 2
+```
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: ["startvm", "a39ee3c3-d837-4424-b38f-189618905cda", "--type", "headless"]
+
+Stderr: VBoxManage: error: Out of memory condition when allocating memory with low physical backing. (VERR_NO_LOW_MEMORY)
+VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
+
+[-] Providing error stop
+```
+
+**solution**
+`echo 1 > /proc/sys/vm/drop_caches`
+
 
 
 
