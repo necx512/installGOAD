@@ -1,12 +1,12 @@
-# Installation v3 beta
+# Etape 0:
+➜  GIT sudo iptables -P OUTPUT ACCEPT
+➜  GIT sudo iptables -P INPUT ACCEPT 
 
-## Etape 1:
+# Etape 1:
 `git clone https://github.com/Orange-Cyberdefense/GOAD.git`
+`cd GOAD`
 
-## Etape 2
-`git checkout v3-beta`
-
-## Etape 3
+/*## Etape 2
 Due to some issues modify the following files:
 
 **goad.sh**
@@ -14,13 +14,16 @@ Check python version with `python3 --version` and adapt it in goad.sh. For exemp
 
 **requirements.yml**
 remplacer `ansible-core==2.12.6` par `ansible-core`
-
+*/
 ## Etape 4
 rm -rf ~/.goad
 
+## Etape
+`VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install vagrant-reload vagrant-vbguest winrm winrm-fs winrm-elevated`
+
 ## Etape 5 Check
 Run `./goad.sh -p virtualbox` to get a CLI.
-It the interface run `check` : `GOAD/virtualbox/local/192.168.56.X > check`
+In the interface run `check` : `GOAD/virtualbox/local/192.168.56.X > check`
 
 ## Etape 6 Install
 Run `./goad.sh -p virtualbox` to get a CLI.
