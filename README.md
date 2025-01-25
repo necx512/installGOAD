@@ -1,20 +1,21 @@
 # Etape 0:
+
 ➜  GIT sudo iptables -P OUTPUT ACCEPT
+
 ➜  GIT sudo iptables -P INPUT ACCEPT 
 
 # Etape 1:
 `git clone https://github.com/Orange-Cyberdefense/GOAD.git`
+
 `cd GOAD`
 
-/*## Etape 2
-Due to some issues modify the following files:
+## Etape 2 ** DEPRECATED DEPRECATED DEPRECATED DEPRECATED **
+Due to some issues modify the following:
 
-**goad.sh**
 Check python version with `python3 --version` and adapt it in goad.sh. For exemple, if python's version is 3.12.07, change `if [ "$version_numeric" -ge 30800 ] && [ "$version_numeric" -lt 31200 ]; then` to `if [ "$version_numeric" -ge 30800 ] && [ "$version_numeric" -lt 31208 ]; then`
 
-**requirements.yml**
-remplacer `ansible-core==2.12.6` par `ansible-core`
-*/
+In requirements.yml, change `ansible-core==2.12.6` by `ansible-core`
+
 ## Etape 4
 rm -rf ~/.goad
 
