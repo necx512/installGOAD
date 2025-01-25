@@ -148,7 +148,7 @@ VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component Consol
 ```
 
 **solution**
-`echo 1 > /proc/sys/vm/drop_caches`
+`echo 1 > /proc/sys/vm/drop_caches` et juste relancer 'install' (ne pas recommancer le process de zero)
 
 
 
